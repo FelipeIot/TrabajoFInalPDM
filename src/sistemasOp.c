@@ -49,7 +49,7 @@ int main( void )
                      0,            // Execution offset in ticks.
                      50           // Periodicity of task execution in ticks.
                    );
-  schedulerAddTask( blinkYellow, // Function that implements the task update.
+  schedulerAddTask( Lectorsw, // Function that implements the task update.
                      &tecla1,            // Parameter passed into the task update.
                      0,            // Execution offset in ticks.
                      1           // Periodicity of task execution in ticks.
@@ -57,14 +57,14 @@ int main( void )
    schedulerAddTask( RGBPRINT, // Function that implements the task update.
 		   	   	   	 &pantalla,            // Parameter passed into the task update.
                      0,            // Execution offset in ticks.
-                     50           // Periodicity of task execution in ticks.
+                     30           // Periodicity of task execution in ticks.
                    );
 
    // Initialize task scheduler each 1ms.
    schedulerStart( 1 );
-   printf( "Hola mundo Felipe \n\r" );
 
-   while( true ){
+
+   while( TRUE ){
       // Dispatch (execute) tasks that are mark to be execute by scheduler.
       schedulerDispatchTasks();
 

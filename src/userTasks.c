@@ -12,6 +12,7 @@
 /*=====[Inclusions of private function dependencies]=========================*/
 #include "RGBSCREEN.h"
 #include "antirebotes.h"
+#include "hardwareLed.h"
 
 /*=====[Definition macros of private constants]==============================*/
 
@@ -38,11 +39,11 @@ void myTaskInit( void* taskParmPtr )
 // Task update implementation
 void myTaskUpdate( void* taskParmPtr )
 {
-   //gpioToggle( LED );
+	toggleLed( LEDB );
 
 }
 
-void blinkYellow( void* taskParmPtr )
+void Lectorsw( void* taskParmPtr )
 {
 
    debounceSM_Update(taskParmPtr);

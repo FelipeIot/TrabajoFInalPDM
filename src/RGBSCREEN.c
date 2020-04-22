@@ -10,6 +10,7 @@
 #include "sapi.h"
 #include "RGBSCREEN.h"
 #include "antirebotes.h"
+#include "hardwareLed.h"
 
 static int h;
 
@@ -84,10 +85,10 @@ void rgb_screen_sm(rgb_t *pRgb)
 		{
 			case horizontal:
 			{
-				 gpioWrite( LED1, ON );
-				 gpioWrite( LED2, OFF );
-				 gpioWrite( LED3, OFF );
-				 printf("\033c");
+				 turnOn( LED1);
+				 turnOff( LED2);
+				 turnOff( LED3);
+				 printf("\033c");//limpia el terminal serial
 
 				 if(pRgb->frame == pantallauno)
 				 {
@@ -111,9 +112,9 @@ void rgb_screen_sm(rgb_t *pRgb)
 			case vertical:
 			{
 
-				 gpioWrite( LED1, OFF );
-				 gpioWrite( LED2, ON );
-				 gpioWrite( LED3, OFF );
+				 turnOff( LED1);
+				 turnOn( LED2);
+				 turnOff( LED3);
 				 printf("\033c");
 
 				 if(pRgb->frame == pantallauno)
@@ -139,9 +140,9 @@ void rgb_screen_sm(rgb_t *pRgb)
 			case prendido:
 			{
 
-				 gpioWrite( LED1, OFF );
-				 gpioWrite( LED2, OFF );
-				 gpioWrite( LED3, ON );
+				 turnOff( LED1);
+				 turnOff( LED2);
+				 turnOn( LED3);
 				 printf("MODO PRENDIDO \n\r");
 				 printf("\033c");
 				 encendido();
@@ -157,9 +158,9 @@ void rgb_screen_sm(rgb_t *pRgb)
 			case apagado:
 			{
 
-				 gpioWrite( LED1, ON );
-				 gpioWrite( LED2, ON );
-				 gpioWrite( LED3, ON );
+				 turnOn( LED1);
+				 turnOn( LED2);
+				 turnOn( LED3);
 				 printf("MODO APAGADO \n\r");
 				 printf("\033c");
 				 shutdown();

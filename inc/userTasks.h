@@ -33,7 +33,7 @@ void myTaskInit( void* taskParmPtr );
 
 // Task update declaration
 void myTaskUpdate( void* taskParmPtr );
-void blinkYellow( void* taskParmPtr );
+void Lectorsw( void* taskParmPtr );
 void RGBPRINT(void* taskParmPtr);
 
 /*=====[Prototypes (declarations) of public interrupt functions]=============*/
